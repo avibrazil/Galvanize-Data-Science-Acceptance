@@ -1,0 +1,36 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+
+CREATE TABLE `salesperson` (
+	`ID`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`name`	TEXT,
+	`age`	INTEGER,
+	`salary`	INTEGER
+);
+INSERT INTO salesperson VALUES(1,'Abe',61,140000);
+INSERT INTO salesperson VALUES(2,'Bob',34,44000);
+INSERT INTO salesperson VALUES(5,'Chris',34,40000);
+INSERT INTO salesperson VALUES(7,'Dan',41,52000);
+INSERT INTO salesperson VALUES(8,'Ken',57,115000);
+INSERT INTO salesperson VALUES(11,'Joe',38,38000);
+
+
+CREATE TABLE `orders` (
+	`number`	INTEGER UNIQUE,
+	`order_date`	INTEGER,
+	`cust_id`	INTEGER,
+	`salesperson_id`	INTEGER,
+	`amount`	INTEGER
+);
+INSERT INTO orders VALUES(10,'08/02/96',4,2,540);
+INSERT INTO orders VALUES(20,'1/30/99',4,8,1800);
+INSERT INTO orders VALUES(30,'7/14/95',9,1,460);
+INSERT INTO orders VALUES(40,'1/29/98',7,2,2400);
+INSERT INTO orders VALUES(50,'02/03/98',6,7,600);
+INSERT INTO orders VALUES(60,'03/02/98',6,7,720);
+INSERT INTO orders VALUES(70,'05/06/98',9,7,150);
+
+DELETE FROM sqlite_sequence;
+INSERT INTO sqlite_sequence VALUES('salesperson',11);
+
+COMMIT;
